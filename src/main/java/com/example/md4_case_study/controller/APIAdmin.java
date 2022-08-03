@@ -24,8 +24,8 @@ public class APIAdmin {
         return appUserService.findAppUserById(id);
     }
     @GetMapping("/search")
-    public List<AppUser> findAllByNameContaining(@RequestParam(defaultValue = "") String nameUser){
-        return appUserService.findAllByNameContaining(nameUser);
+    public List<AppUser> findByEmail(@RequestParam(defaultValue = "") String email){
+        return appUserService.findByEmail(email);
     }
     @PutMapping
     public void edit(@RequestBody AppUser appUser){

@@ -14,8 +14,4 @@ public interface AppUserRepo extends CrudRepository<AppUser, Long> {
     @Modifying
     @Query(nativeQuery = true,value = "insert into app_user_roles values(:id,1);")
     AppUser saveRole(@Param("id") long id);
-
-    @Query(nativeQuery = true, value = "SELECT * FROM app_user where name_user like concat('%',:name,'%');")
-    List<AppUser> findAllByNameContaining(String nameUser);
-
-}
+    List<AppUser> findByEmail( String email);}

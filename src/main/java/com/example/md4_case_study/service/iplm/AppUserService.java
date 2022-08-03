@@ -38,10 +38,6 @@ public class AppUserService implements IAppUserService {
         return  appUserRepo.findById(id);
     }
 
-    @Override
-    public List<AppUser> findAllByNameContaining(String nameUser) {
-        return appUserRepo.findAllByNameContaining(nameUser);
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -52,4 +48,11 @@ public class AppUserService implements IAppUserService {
     public void saveRole(long id) {
         appUserRepo.saveRole(id);
     }
+
+    @Override
+    public List<AppUser> findByEmail(String email) {
+        return appUserRepo.findByEmail(email);
+    }
+
+
 }

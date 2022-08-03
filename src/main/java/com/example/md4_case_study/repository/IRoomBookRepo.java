@@ -10,7 +10,7 @@ import java.util.Optional;
 
 
 public interface IRoomBookRepo extends PagingAndSortingRepository<RoomBook,Long> {
-    Optional<RoomBook> findAppUserById(AppUser appUser);
+    Optional<RoomBook> findByAppUser(AppUser appUser);
     Page<RoomBook> findByNameGuestContaining(Pageable pageable, String nameGuest);
     Page<RoomBook> findByNameGuest(String nameGuest);
 

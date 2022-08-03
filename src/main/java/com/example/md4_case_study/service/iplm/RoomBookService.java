@@ -35,7 +35,7 @@ public class RoomBookService implements IRoomBookService {
 
     @Override
     public Optional<RoomBook> findByAppUser(AppUser appUser){
-        return iRoomBookRepo.findAppUserById(appUser);
+        return iRoomBookRepo.findByAppUser(appUser);
     }
 
     @Override
