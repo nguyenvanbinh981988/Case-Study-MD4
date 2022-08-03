@@ -1,9 +1,10 @@
-package com.example.md4_case_study.service;
+package com.example.md4_case_study.service.iplm;
 
 
 import com.example.md4_case_study.model.AppUser;
 import com.example.md4_case_study.model.RoomBook;
 import com.example.md4_case_study.repository.IRoomBookRepo;
+import com.example.md4_case_study.service.IRoomBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,7 +35,7 @@ public class RoomBookService implements IRoomBookService {
 
     @Override
     public Optional<RoomBook> findByAppUser(AppUser appUser){
-        return iRoomBookRepo.findByAppUser(appUser);
+        return iRoomBookRepo.findAppUserById(appUser);
     }
 
     @Override
@@ -46,4 +47,5 @@ public class RoomBookService implements IRoomBookService {
     public Page<RoomBook> findByNameGuest(String nameGuest) {
         return iRoomBookRepo.findByNameGuest(nameGuest);
     }
+
 }
