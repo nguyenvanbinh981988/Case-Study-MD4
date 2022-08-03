@@ -1,6 +1,6 @@
 package com.example.md4_case_study.service.implement;
 
-import com.example.md4_case_study.model.User;
+import com.example.md4_case_study.model.AppUser;
 import com.example.md4_case_study.repositorys.IUserRepo;
 import com.example.md4_case_study.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,12 @@ public class UserService implements IUserService {
     IUserRepo iUserRepo;
 
     @Override
-    public List<User> getAll() {
-        return (List<User>) iUserRepo.findAll();
+    public List<AppUser> getAll() {
+        return (List<AppUser>) iUserRepo.findAll();
     }
 
     @Override
-    public User save(User user) {
+    public AppUser save(AppUser user) {
         return iUserRepo.save(user);
     }
 
