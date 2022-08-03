@@ -14,8 +14,8 @@ public class AppUser {
     private String nameUser;
     private String cccdUser;
     private String phoneUser;
-    private String passwordUser;
     private String email;
+    private String passwordUser;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 }

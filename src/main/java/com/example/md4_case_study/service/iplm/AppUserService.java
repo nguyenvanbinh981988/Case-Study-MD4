@@ -33,12 +33,13 @@ public class AppUserService implements IAppUserService {
     }
 
     @Override
-    public Optional<AppUser> findAppUserById(long id) {
-        return appUserRepo.findById(id);
+    public AppUser findAppUserByName(String name) {
+        return appUserRepo.findByUserName(name);
     }
 
+
     @Override
-    public void saveRole(long id) {
+    public void saveRole(long id){
         appUserRepo.saveRole(id);
     }
 

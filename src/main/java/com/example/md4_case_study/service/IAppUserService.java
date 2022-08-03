@@ -12,7 +12,7 @@ public interface IAppUserService extends UserDetailsService {
     void save(AppUser appUser);
     void delete(Long id);
 
-    Optional<AppUser> findAppUserById(long id);
+    AppUser findAppUserByName(String name);
 
     void saveRole(long id);
 }
