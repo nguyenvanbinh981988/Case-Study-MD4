@@ -13,13 +13,13 @@ public class RoomBook {
     private int id_roomBook;
 
     @ManyToOne
-    private User user;
+    private AppUser user;
 
     @ManyToOne
     private Room room;
 
-    private String guest_Name;
-    private String guest_Cccd;
+    private String nameGuest;
+    private String cccdGuest;
     private String bankAccount;
     private Date checkIn;
     private Date checkOut;
