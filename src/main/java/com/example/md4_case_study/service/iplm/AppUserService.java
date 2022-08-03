@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AppUserService implements IAppUserService {
     @Autowired
@@ -29,6 +30,16 @@ public class AppUserService implements IAppUserService {
     @Override
     public void delete(Long id) {
         appUserRepo.deleteById(id);
+    }
+
+    @Override
+    public Optional<AppUser> findAppUserById(long id) {
+        return appUserRepo.findById(id);
+    }
+
+    @Override
+    public void saveRole(long id) {
+        appUserRepo.saveRole(id);
     }
 
     @Override

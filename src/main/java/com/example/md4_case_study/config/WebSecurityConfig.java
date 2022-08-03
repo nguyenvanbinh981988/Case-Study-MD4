@@ -1,6 +1,7 @@
 package com.example.md4_case_study.config;
 
 import com.example.md4_case_study.service.IAppUserService;
+import com.example.md4_case_study.service.iplm.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,40 +21,32 @@ import org.springframework.web.cors.CorsConfiguration;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    IAppUserService appUserService;
+    AppUserService appUserService;
+
+    @Autowired
+    JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     @Override
-    public AuthenticationManager authenticationManager() throws Exception{
+    public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/login","/resgsiter").permitAll()
+                .and().authorizeRequests().antMatchers("/user/**").hasRole("USER")
+                .and().authorizeRequests().anyRequest().authenticated()
+                .and().csrf().disable();
+        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling();
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
     }
 
-
-    @Bean
-    public JwtAuthenticationFilter jwtAuthenticationFilter() {
-        return new JwtAuthenticationFilter();
-    }
-
-
+    // xắc thực
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(appUserService).passwordEncoder(NoOpPasswordEncoder.getInstance());
-
-    }
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/login","/register").permitAll()
-//                .and().authorizeRequests().antMatchers("/user**").hasRole("USER")
-                .and().authorizeRequests().anyRequest().authenticated()
-                .and().csrf().disable();
-        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling();
-        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
     }
 
 

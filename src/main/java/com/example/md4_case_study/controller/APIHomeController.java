@@ -22,32 +22,32 @@ public class APIHomeController {
     @Autowired
     IAppUserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/login")
-    public String login(@RequestBody AppUser appUser) {
+    public String login(@RequestBody AppUser appUser){
         try {
             // Tạo ra 1 đối tượng Authentication.
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(appUser.getNameUser(), appUser.getPasswordUser()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            String token = jwtService.generateTokenLogin(authentication);
+            String token = jwtService.createToken(authentication);
             return token;
-        } catch (Exception e){
+        } catch (Exception e) {
             return e.getMessage();
         }
-
     }
 
 
     @PostMapping("/register")
     public void register(@RequestBody AppUser appUser) {
-        String pass = passwordEncoder.encode(appUser.getPasswordUser());
-        appUser.setPasswordUser(pass);
+//        String pass = passwordEncoder.encode(appUser.getPasswordUser());
+//        appUser.setPasswordUser(pass);
         userService.save(appUser);
+        userService.saveRole(appUser.getIdUser());
     }
 }

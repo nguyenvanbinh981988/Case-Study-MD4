@@ -10,7 +10,7 @@ import java.util.List;
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int idUser;
+    private  long idUser;
     private String nameUser;
     private String cccdUser;
     private String phoneUser;
