@@ -11,13 +11,9 @@ import java.util.Optional;
 public interface IRoomBookService {
     Page<RoomBook> getAll(Pageable pageable);
     RoomBook save(RoomBook roomBook);
-    void delete(long idRoomBook);
+    void delete(Long idRoomBook);
 
-    RoomBook findById(long idRoomBook);
-
-    List<RoomBook> findByName(String name);
-
-    Page<RoomBook> findByAppUser(AppUser appUser);
+    Optional<RoomBook> findByAppUser(AppUser appUser);
 
     Page<RoomBook> findByNameGuestContain(Pageable pageable, String nameGuest);
 

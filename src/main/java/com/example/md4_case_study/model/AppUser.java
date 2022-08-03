@@ -2,10 +2,7 @@ package com.example.md4_case_study.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -18,5 +15,7 @@ public class AppUser {
     private String cccdUser;
     private String phoneUser;
     private String passWordUser;
+    private String email;
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 }

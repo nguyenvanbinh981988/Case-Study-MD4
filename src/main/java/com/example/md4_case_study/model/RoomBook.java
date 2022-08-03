@@ -13,7 +13,7 @@ public class RoomBook {
     private long idRoomBook;
 
     @ManyToOne
-    private AppUser user;
+    private AppUser appUser;
 
     @ManyToOne
     private Room room;
