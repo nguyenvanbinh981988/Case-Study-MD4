@@ -1,5 +1,6 @@
 package com.example.md4_case_study.model;
 
+
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -9,14 +10,9 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Room {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idRoom;
-    private String roomType;
-    private String roomKind;
-    private String view;
-    private String picture1;
-    private String picture2;
-    private String picture3;
+    private long idRole;
+    private String nameRole;
 }

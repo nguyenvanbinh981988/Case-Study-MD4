@@ -6,17 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 @Data
-public class User {
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_User;
-    private String name;
-    private String user_Cccd;
-    private String phone;
-    private String position;
-    private String Account;
-    private String passWord;
+    private long idUser;
+    private String nameUser;
+    private String cccdUser;
+    private String phoneUser;
+    private String passWordUser;
+    private List<Role> roles;
 }
