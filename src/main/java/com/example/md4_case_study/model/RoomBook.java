@@ -10,10 +10,12 @@ import java.sql.Date;
 public class RoomBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_roomBook;
+    private long idRoomBook;
 
     @ManyToOne
-    private AppUser appuser;
+
+    private AppUser appUser;
+
 
     @ManyToOne
     private Room room;

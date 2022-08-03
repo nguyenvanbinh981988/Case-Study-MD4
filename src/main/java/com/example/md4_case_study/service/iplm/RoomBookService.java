@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,7 +30,7 @@ public class RoomBookService implements IRoomBookService {
     }
 
     @Override
-    public void delete(Long idRoomBook){
+    public void delete(long idRoomBook){
         iRoomBookRepo.deleteById(idRoomBook);
     }
 
@@ -44,7 +45,7 @@ public class RoomBookService implements IRoomBookService {
     }
 
     @Override
-    public Page<RoomBook> findByNameGuest(String nameGuest) {
+    public List<RoomBook> findByNameGuest(String nameGuest) {
         return iRoomBookRepo.findByNameGuest(nameGuest);
     }
 

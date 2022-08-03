@@ -19,4 +19,5 @@ public class AppUser {
     private String email;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+
 }
