@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@CrossOrigin("*")
 public class RoomBookAPI {
     @Autowired
     IRoomBookService roomBookService;
