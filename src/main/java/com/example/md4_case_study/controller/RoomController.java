@@ -67,11 +67,11 @@ public class RoomController {
     public String upImg(@RequestParam MultipartFile file){
         String name = file.getOriginalFilename();
         try {
-            FileCopyUtils.copy(file.getBytes(),new File("C:\\Users\\admin\\Desktop\\Case-Study-MD4\\src\\main\\resources\\templates\\image\\" + name));
+            FileCopyUtils.copy(file.getBytes(),new File("C:\\Users\\admin\\Desktop\\Case-Study-MD4-FE\\royal-master\\image\\" + name));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/img/"+name;
+        return "/image/"+name;
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

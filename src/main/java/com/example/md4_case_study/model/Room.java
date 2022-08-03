@@ -19,6 +19,6 @@ public class Room {
     private boolean statusRoom;
     private double priceRoom;
     private String picture1;
-    private String picture2;
-    private String picture3;
+//    private String picture2;
+//    private String picture3;
 }
