@@ -12,10 +12,12 @@ import javax.persistence.Id;
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_Room;
-    private String roomType;
-    private String area;
+    private long idRoom;
+    private int roomType;
+    private String roomKind;
     private String view;
+    private boolean statusRoom;
+    private double priceRoom;
     private String picture1;
     private String picture2;
     private String picture3;

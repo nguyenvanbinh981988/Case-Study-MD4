@@ -10,16 +10,16 @@ import java.sql.Date;
 public class RoomBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_roomBook;
+    private long idRoomBook;
 
     @ManyToOne
-    private User user;
+    private AppUser appUser;
 
     @ManyToOne
     private Room room;
 
-    private String guest_Name;
-    private String guest_Cccd;
+    private String nameGuest;
+    private String cccdGuest;
     private String bankAccount;
     private Date checkIn;
     private Date checkOut;
