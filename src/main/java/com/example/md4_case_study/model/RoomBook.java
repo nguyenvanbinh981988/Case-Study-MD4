@@ -14,9 +14,7 @@ public class RoomBook {
 
     @ManyToOne
 
-
     private AppUser appUser;
-
 
     @ManyToOne
     private Room room;
