@@ -11,11 +11,15 @@ import java.util.Optional;
 public interface IRoomBookService {
     Page<RoomBook> getAll(Pageable pageable);
     RoomBook save(RoomBook roomBook);
+
     void delete(long idRoomBook);
+
 
     Optional<RoomBook> findByAppUser(AppUser appUser);
 
     Page<RoomBook> findByNameGuestContain(Pageable pageable, String nameGuest);
 
+
     List<RoomBook> findByNameGuest(String nameGuest);
+
 }
