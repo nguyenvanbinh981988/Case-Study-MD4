@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/login","/resgsiter").permitAll()
+        http.authorizeRequests().antMatchers("/login","/register").permitAll()
                 .and().authorizeRequests().antMatchers("/user/**").hasRole("USER")
                 .and().authorizeRequests().anyRequest().authenticated()
                 .and().csrf().disable();
@@ -49,6 +49,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(appUserService).passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
-
 
 }

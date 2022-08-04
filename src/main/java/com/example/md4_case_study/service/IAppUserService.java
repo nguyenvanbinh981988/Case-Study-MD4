@@ -11,9 +11,16 @@ public interface IAppUserService extends UserDetailsService {
     List<AppUser> getAll();
     void save(AppUser appUser);
     void delete(Long id);
+
     Optional<AppUser> findAppUserById(long id);
-    void saveRole(long id);
+
 
     List<AppUser> findByEmail( String email);
+
+
+
+    AppUser findAppUserByName(String name);
+
+    void saveRole(long id);
 
 }

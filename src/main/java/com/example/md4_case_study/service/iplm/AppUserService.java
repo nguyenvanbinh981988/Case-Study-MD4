@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,9 +33,16 @@ public class AppUserService implements IAppUserService {
     }
 
     @Override
+
     public Optional<AppUser> findAppUserById(long id) {
-        return  appUserRepo.findById(id);
+        return  appUserRepo.findById(id);}
+
+    public AppUser findAppUserByName(String name) {
+        return appUserRepo.findByUserName(name);
+
     }
+
+
 
 
     @Override

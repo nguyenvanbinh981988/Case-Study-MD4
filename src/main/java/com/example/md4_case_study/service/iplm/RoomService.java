@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class RoomService implements IRoomService {
+public class RoomService implements IRoomService{
     @Autowired
     RoomRepo roomRepo;
     @Override
