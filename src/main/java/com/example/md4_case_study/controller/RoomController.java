@@ -86,4 +86,11 @@ public class RoomController {
         });
         return errors;
     }
+
+    @PostMapping("/showroomdetail/{id}")
+    public Room showChiTiet(@PathVariable long id){
+        Room room=roomService.findById(id).get();
+        return room;
+    }
+
 }
