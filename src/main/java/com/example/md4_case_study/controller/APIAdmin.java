@@ -1,7 +1,9 @@
 package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.AppUser;
+import com.example.md4_case_study.repository.IRoleRepo;
 import com.example.md4_case_study.service.IAppUserService;
+import com.example.md4_case_study.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,8 @@ import java.util.Optional;
 @CrossOrigin("*")
 @RequestMapping("/admin")
 public class APIAdmin {
+    @Autowired
+    IRoleService roleService;
 @Autowired
     IAppUserService appUserService;
 @GetMapping
@@ -28,8 +32,10 @@ public class APIAdmin {
         return appUserService.findByEmail(email);
     }
     @PutMapping
-    public void edit(@RequestBody AppUser appUser){
+    public void edit(@RequestBody AppUser appUser ){
+
         appUserService.save(appUser);
+
     }
     @DeleteMapping("/{id}")
     public void delete(@PathVariable long id){

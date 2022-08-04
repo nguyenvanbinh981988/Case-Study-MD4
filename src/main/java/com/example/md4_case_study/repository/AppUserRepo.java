@@ -12,6 +12,7 @@ import java.util.List;
 public interface AppUserRepo extends CrudRepository<AppUser, Long> {
     @Query(nativeQuery = true,value = "select * from app_user where name_user like concat('%',:name,'%'); ")
     AppUser findByUserName(String name);
+
     @Modifying
     @Transactional
     @Query(nativeQuery = true,value = "insert into app_user_roles values(:id,1);")
