@@ -18,4 +18,25 @@ public class CommentAPI {
         List<Comment> list =iCommentService.getAllByRoom(id);
         return list;
     }
+
+    @PostMapping
+    public Comment create(@RequestBody Comment comment){
+        return iCommentService.save(comment);
+    }
+
+    @PutMapping
+    public Comment edit(@RequestBody Comment comment){
+        return iCommentService.save(comment);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable long id){
+        iCommentService.delete(id);
+        return "ok";
+    }
+
+    @GetMapping("/countComment")
+    public int countComment(int id){
+        return iCommentService.countComment(id);
+    }
 }

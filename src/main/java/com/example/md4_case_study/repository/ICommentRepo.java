@@ -10,4 +10,6 @@ import java.util.List;
 public interface ICommentRepo extends CrudRepository<Comment,Long> {
     @Query(nativeQuery = true,value = "SELECT * FROM md4_case_study.comment where room_id_room =:id")
     List<Comment> findAllByIdRoom(@Param("id")long id);
+
+    public int countCommentByIdComment(long idCommnet);
 }
