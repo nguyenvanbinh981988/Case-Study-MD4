@@ -11,7 +11,7 @@ public class HotelSv {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long IdHotelSv;
-    private long nameHotelSv;
+    private String nameHotelSv;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Picture> pictures;
 }
