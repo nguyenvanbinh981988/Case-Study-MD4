@@ -32,11 +32,9 @@ public class APIRoomBookController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id){
-        roomBookService.delete(id);
+    public String delete(@PathVariable Long idRoomBook){
+        roomBookService.delete(idRoomBook);
         return "OK";
     }
-
-
 
 }
