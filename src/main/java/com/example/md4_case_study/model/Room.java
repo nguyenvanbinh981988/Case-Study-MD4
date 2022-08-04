@@ -2,10 +2,9 @@ package com.example.md4_case_study.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -18,7 +17,9 @@ public class Room {
     private String view;
     private boolean statusRoom;
     private double priceRoom;
-    private String picture1;
-    private String picture2;
-    private String picture3;
+//    private String picture1;
+//    private String picture2;
+//    private String picture3;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Picture> pictures;
 }
