@@ -16,6 +16,8 @@ public class AppUser {
     private String phoneUser;
     private String passWordUser;
     private String email;
-    @ManyToOne
-    private Role role;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles;
 }
+
