@@ -28,6 +28,6 @@ public class CommentService {
     }
 
     public int countComment(long id){
-        return iCommentRepo.countCommentByIdComment(id);
+        return iCommentRepo.countCommentByRoom(id);
     }
 }

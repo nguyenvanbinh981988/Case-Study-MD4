@@ -18,9 +18,6 @@ public class Room {
     private String view;
     private boolean statusRoom;
     private double priceRoom;
-    //    private String picture1;
-//    private String picture2;
-//    private String picture3;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Picture> pictures;
 }
