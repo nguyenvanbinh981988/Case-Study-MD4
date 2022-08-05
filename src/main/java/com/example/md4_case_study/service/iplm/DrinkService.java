@@ -15,4 +15,14 @@ public class DrinkService implements IDrinkService {
     public List<Drink> listDrink() {
       return drinkRepo.listDrink();
     }
+
+    @Override
+    public int quantityDrink(int id) {
+       return drinkRepo.quantityExist(id);
+    }
+
+    @Override
+    public void updateQuantity(int id,int quantity) {
+        drinkRepo.updateQuantity(id, quantity);
+    }
 }

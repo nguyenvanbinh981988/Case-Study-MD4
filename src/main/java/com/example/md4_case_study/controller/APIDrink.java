@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -28,14 +29,11 @@ public class APIDrink {
 
     @PostMapping("/pay")
     public void save(@RequestBody  List<ListUserSelect> listUserSelects){
-       try{
            for (ListUserSelect userSelect : listUserSelects){
                listUserSelectService.save(userSelect);
-
+               System.out.println(drinkService.quantityDrink(userSelect.getDrink().getIdDrink()));
+               int a = drinkService.quantityDrink(userSelect.getDrink().getIdDrink()) -userSelect.getQuantity();
+               drinkService.updateQuantity(userSelect.getDrink().getIdDrink(),a);
            }
-       }
-       catch (Exception e){
-
-       }
     }
 }

@@ -14,7 +14,8 @@ public interface DrinkRepo extends CrudRepository<Drink,Integer> {
     @Query(nativeQuery = true,value = "select * from login_jwt.drink where service_type_id=1 ")
     List<Drink> listDrink();
 
-    @Query(nativeQuery = true,value = "select quantity_drink from login_jwt.drink where id_drink=:id")
+
+    @Query(nativeQuery = true,value = "select quantity_drink from login_jwt.drink where id_drink=:id ")
     int quantityExist(@Param("id") int id);
     @Modifying
     @Transactional
