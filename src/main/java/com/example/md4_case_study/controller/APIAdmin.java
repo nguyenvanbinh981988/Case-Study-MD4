@@ -29,11 +29,11 @@ public class APIAdmin {
     }
     @GetMapping("/search")
     public List<AppUser> findByEmail(@RequestParam(defaultValue = "") String email){
-        return appUserService.findByEmail(email);
+            return appUserService.findAllByEmai(email);
     }
     @PutMapping
     public void edit(@RequestBody AppUser appUser ){
-
+    roleService.getRole();
         appUserService.save(appUser);
 
     }

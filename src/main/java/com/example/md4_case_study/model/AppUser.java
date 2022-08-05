@@ -19,5 +19,4 @@ public class AppUser {
     private String passwordUser;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
-
 }

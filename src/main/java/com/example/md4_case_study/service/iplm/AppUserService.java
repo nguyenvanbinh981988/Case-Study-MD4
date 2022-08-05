@@ -37,6 +37,11 @@ public class AppUserService implements IAppUserService {
     public Optional<AppUser> findAppUserById(long id) {
         return  appUserRepo.findById(id);}
 
+    @Override
+    public List<AppUser> findAllByEmai(String email) {
+        return appUserRepo.findAllByEmailContainingIgnoreCase(email);
+    }
+
     public AppUser findAppUserByName(String name) {
         return appUserRepo.findByUserName(name);
 
@@ -55,10 +60,7 @@ public class AppUserService implements IAppUserService {
         appUserRepo.saveRole(id);
     }
 
-    @Override
-    public List<AppUser> findByEmail(String email) {
-        return appUserRepo.findByEmail(email);
-    }
+
 
 
 }

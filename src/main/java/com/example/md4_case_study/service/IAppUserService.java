@@ -15,7 +15,7 @@ public interface IAppUserService extends UserDetailsService {
     Optional<AppUser> findAppUserById(long id);
 
 
-    List<AppUser> findByEmail( String email);
+    List<AppUser> findAllByEmai ( String email);
 
 
 
