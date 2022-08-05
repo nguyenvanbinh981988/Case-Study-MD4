@@ -8,5 +8,7 @@ public interface IDrinkService {
 
     List<Drink> listDrink();
 
+    int quantityDrink(int id);
 
+    void updateQuantity(int id,int quantity);
 }

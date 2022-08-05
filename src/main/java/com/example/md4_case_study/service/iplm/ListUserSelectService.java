@@ -15,4 +15,10 @@ public class ListUserSelectService implements IListUserSelect {
     public void save(ListUserSelect listUserSelect) {
         listUserSelectRepo.save(listUserSelect);
     }
+
+//    @Override
+//    public int quantitySelect(int id) {
+//        return  listUserSelectRepo.quantitySelect(id);
+//    }
+
 }

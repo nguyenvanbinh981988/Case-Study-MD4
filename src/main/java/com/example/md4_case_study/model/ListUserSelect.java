@@ -2,19 +2,18 @@ package com.example.md4_case_study.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class ListUserSelect {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private int idAppUser;
-
-    private int idDrink;
+    @ManyToOne
+    private AppUser appUser;
+    @ManyToOne
+    private  Drink drink;
 
     private  String nameDrink;
 
