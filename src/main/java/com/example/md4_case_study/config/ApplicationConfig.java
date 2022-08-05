@@ -11,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 
 public class ApplicationConfig extends WebMvcConfigurerAdapter {
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         // Can just allow `methods` that you need.
