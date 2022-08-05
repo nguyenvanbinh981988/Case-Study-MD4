@@ -47,7 +47,7 @@ public class APIHomeController {
             String token = jwtService.createToken(authentication);
             return new ResponseEntity<>(new UserLoging(userService.findAppUserByName(appUser.getNameUser()).getIdUser(),token), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
