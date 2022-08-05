@@ -31,6 +31,7 @@ public class APIDrink {
        try{
            for (ListUserSelect userSelect : listUserSelects){
                listUserSelectService.save(userSelect);
+
            }
        }
        catch (Exception e){
