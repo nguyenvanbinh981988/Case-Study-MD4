@@ -43,17 +43,17 @@ public class RoomController {
         return new ResponseEntity<>(roomOptional.get(), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Room> update( @PathVariable Long id,@RequestBody Room room) {
-        Optional<Room> roomOptional = roomService.findById(id);
-        if(!roomOptional.isPresent()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        room.setIdRoom(roomOptional.get().getIdRoom());
+    @PostMapping
+    public void create(@RequestBody Room room){
         roomService.save(room);
-        return new ResponseEntity<>(room, HttpStatus.CREATED);
     }
+
+  @PutMapping
+  public void edit(@RequestBody Room room){
+        roomService.save(room);
+  }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Room> deleteRoom(@PathVariable Long id) {
         Optional<Room> roomOptional = roomService.findById(id);
@@ -71,7 +71,11 @@ public class RoomController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/image/"+name;
+        return "image/"+name;
+    }
+    @GetMapping("/search")
+    public List<Room> findByName(@RequestParam(defaultValue = "") String name){
+        return roomService.findByName(name);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

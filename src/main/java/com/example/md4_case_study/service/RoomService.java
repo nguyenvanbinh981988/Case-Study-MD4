@@ -7,6 +7,7 @@ import com.example.md4_case_study.repository.RoomRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,11 +33,10 @@ public class RoomService implements IRoomService {
     @Override
     public void remove(Long id) {
         roomRepo.deleteById(id);
-
+    }
+    @Override
+    public List<Room> findByName(String name) {
+        return roomRepo.findAllByNameContaining(name);
     }
 
-//    @Override
-//    public Iterable<Room> findAllByNameContaining(String name) {
-//        return roomRepo.findAllByNameContaining(name);
-//    }
 }
