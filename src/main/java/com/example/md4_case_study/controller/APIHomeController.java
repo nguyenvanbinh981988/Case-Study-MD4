@@ -2,8 +2,6 @@ package com.example.md4_case_study.controller;
 import com.example.md4_case_study.model.AppUser;
 
 
-import com.example.md4_case_study.model.PasswordResetToken;
-import com.example.md4_case_study.service.iplm.ISecurityUserServiceImpl;
 import com.example.md4_case_study.service.iplm.JwtService;
 
 
@@ -31,8 +29,6 @@ public class APIHomeController {
 
     @Autowired
     AppUserService userService;
-    @Autowired
-    ISecurityUserServiceImpl securityUserService;
 
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
@@ -44,30 +40,28 @@ public class APIHomeController {
 
     public ResponseEntity<UserLoging> login(@RequestBody AppUser appUser){
         try {
+
             // Tạo ra 1 đối tượng Authentication.
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(appUser.getNameUser(), appUser.getPasswordUser()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = jwtService.createToken(authentication);
-            return new ResponseEntity<>(new UserLoging(userService.findAppUserByName(appUser.getNameUser()).getIdUser(),token), HttpStatus.OK);
+
+            return new ResponseEntity<>(new UserLoging(userService.findAppUserByName(appUser.getNameUser()).getIdUser(),appUser.getNameUser(),token), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
 
 
     @PostMapping("/register")
 
-    public String register(@RequestBody AppUser appUser ) {
+    public String register(@RequestBody AppUser appUser) {
 //        String pass = passwordEncoder.encode(appUser.getPasswordUser());
 //        appUser.setPasswordUser(pass);
         userService.save(appUser);
         userService.saveRole(appUser.getIdUser());
         return "okkkkkk";
+
     }
-//    @PostMapping("/forgotpass")
-//    public String forgotpass(@RequestBody PasswordResetToken passwordResetToken){
-//        securityUserService.validatePasswordResetToken(passwordResetToken.getIdToken(),passwordResetToken.getToken());
-//        return "zzzzzz";
-//    }
 }

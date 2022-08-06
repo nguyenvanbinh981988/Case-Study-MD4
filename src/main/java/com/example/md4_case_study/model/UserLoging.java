@@ -6,9 +6,12 @@ public class UserLoging {
     private long id;
     private  String token;
 
-    public UserLoging(long id, String token) {
+    private String userName;
+
+    public UserLoging(long id, String token,String userName) {
         this.id = id;
         this.token = token;
+        this.userName = userName;
     }
 
     public long getId() {
