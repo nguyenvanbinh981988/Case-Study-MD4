@@ -5,18 +5,13 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
 @Data
-public class AppUser {
+public class HotelSv {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long idUser;
-    private String nameUser;
-    private String cccdUser;
-    private String phoneUser;
-    private String email;
-    private String passwordUser;
+    private long IdHotelSv;
+    private String nameHotelSv;
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> roles;
+    private List<Picture> pictures;
 }

@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -13,7 +14,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idComment;
     private String content;
-    private LocalTime dateComment ;
+    private LocalDateTime dateComment ;
     @ManyToOne
     private Room room;
     @ManyToOne

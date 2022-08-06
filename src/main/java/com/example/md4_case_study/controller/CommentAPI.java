@@ -1,8 +1,10 @@
 package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.Comment;
+import com.example.md4_case_study.model.CommentUser;
 import com.example.md4_case_study.service.CommentService;
 
+import com.example.md4_case_study.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,15 +16,17 @@ import java.util.List;
 public class CommentAPI {
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    RoomService roomService;
     @GetMapping("/{id}")
     public List<Comment>getAll(@PathVariable long id){
-        List<Comment> list =commentService.getAllByRoom(id);
-        return list;
+        return commentService.getAll(id);
     }
 
     @PostMapping
-    public Comment create(@RequestBody Comment comment){
-        return commentService.save(comment);
+    public void create(@RequestBody CommentUser commentUser){
+        commentService.saveComment(commentUser.getIdUser(),commentUser.getContent(),commentUser.getIdroom());
     }
 
     @PutMapping
@@ -36,8 +40,8 @@ public class CommentAPI {
         return "ok";
     }
 
-    @GetMapping("/countComment")
-    public int countComment(int id){
+    @GetMapping("/countComment/{id}")
+    public int countComment( @PathVariable("id") int id){
         return commentService.countComment(id);
     }
 }

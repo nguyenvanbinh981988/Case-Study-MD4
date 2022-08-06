@@ -1,6 +1,7 @@
 package com.example.md4_case_study.service;
 
 import com.example.md4_case_study.model.Comment;
+import com.example.md4_case_study.model.Room;
 import com.example.md4_case_study.repository.ICommentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,10 @@ public class CommentService {
     @Autowired
     ICommentRepo iCommentRepo;
 
-    public List<Comment> getAllByRoom(Long id){
-        return iCommentRepo.findAllByIdRoom(id);
+    public List<Comment> getAll(@PathVariable ("id") long id){
+        List<Comment> list = iCommentRepo.findAllByIdRoom(id);
+        return list;
     }
-
     public Comment save(@RequestBody Comment comment){
         return iCommentRepo.save(comment);
     }
@@ -27,6 +28,11 @@ public class CommentService {
         return "da xoa";
     }
 
+    public void saveComment(long idUser,String content,long idroom){
+
+
+        iCommentRepo.saveComment(idUser,content,idroom);
+    }
     public int countComment(long id){
         return iCommentRepo.countCommentByRoom(id);
     }

@@ -21,11 +21,11 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping ("/room")
+@RequestMapping ("/user")
 public class RoomController {
     @Autowired
     RoomService roomService;
-    @GetMapping
+    @GetMapping("/room")
     public ResponseEntity<Iterable<Room>> findAllRoom() {
         List<Room> rooms = (List<Room>) roomService.findAll();
         if (rooms.isEmpty()) {
@@ -35,16 +35,16 @@ public class RoomController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Room> findRoomById(@PathVariable Long id) {
+    public ResponseEntity<Room> findRoomById(@PathVariable long id) {
         Optional<Room> roomOptional = roomService.findById(id);
-        if (!roomOptional.isPresent()) {
+        if (!roomOptional.isPresent()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(roomOptional.get(), HttpStatus.OK);
+        return new ResponseEntity<>(roomOptional.get(),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Room> update( @PathVariable Long id,@RequestBody Room room) {
+    public ResponseEntity<Room> update( @PathVariable long id,@RequestBody Room room) {
         Optional<Room> roomOptional = roomService.findById(id);
         if(!roomOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -55,7 +55,7 @@ public class RoomController {
         return new ResponseEntity<>(room, HttpStatus.CREATED);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Room> deleteRoom(@PathVariable Long id) {
+    public ResponseEntity<Room> deleteRoom(@PathVariable long id) {
         Optional<Room> roomOptional = roomService.findById(id);
         if (!roomOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

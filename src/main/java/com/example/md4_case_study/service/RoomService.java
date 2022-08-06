@@ -2,11 +2,13 @@ package com.example.md4_case_study.service;
 
 
 
+import com.example.md4_case_study.model.ReplyComment;
 import com.example.md4_case_study.model.Room;
 import com.example.md4_case_study.repository.RoomRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
