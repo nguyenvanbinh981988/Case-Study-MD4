@@ -26,9 +26,6 @@ public class APIHomeController {
     @Autowired
     AppUserService userService;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
-
     @Autowired
     private AuthenticationManager authenticationManager;
 

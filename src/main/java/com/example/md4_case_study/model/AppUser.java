@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
 @Data
 public class AppUser {
@@ -19,5 +18,5 @@ public class AppUser {
     private String passwordUser;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
-
 }
+
