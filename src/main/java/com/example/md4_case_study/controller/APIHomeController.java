@@ -2,6 +2,8 @@ package com.example.md4_case_study.controller;
 import com.example.md4_case_study.model.AppUser;
 
 
+import com.example.md4_case_study.model.PasswordResetToken;
+import com.example.md4_case_study.service.iplm.ISecurityUserServiceImpl;
 import com.example.md4_case_study.service.iplm.JwtService;
 
 
@@ -29,6 +31,8 @@ public class APIHomeController {
 
     @Autowired
     AppUserService userService;
+    @Autowired
+    ISecurityUserServiceImpl securityUserService;
 
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
@@ -54,12 +58,16 @@ public class APIHomeController {
 
     @PostMapping("/register")
 
-    public String register(@RequestBody AppUser appUser) {
+    public String register(@RequestBody AppUser appUser ) {
 //        String pass = passwordEncoder.encode(appUser.getPasswordUser());
 //        appUser.setPasswordUser(pass);
         userService.save(appUser);
         userService.saveRole(appUser.getIdUser());
         return "okkkkkk";
-
     }
+//    @PostMapping("/forgotpass")
+//    public String forgotpass(@RequestBody PasswordResetToken passwordResetToken){
+//        securityUserService.validatePasswordResetToken(passwordResetToken.getIdToken(),passwordResetToken.getToken());
+//        return "zzzzzz";
+//    }
 }

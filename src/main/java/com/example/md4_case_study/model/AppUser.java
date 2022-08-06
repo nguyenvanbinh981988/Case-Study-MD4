@@ -1,6 +1,9 @@
 package com.example.md4_case_study.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,6 +11,10 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
