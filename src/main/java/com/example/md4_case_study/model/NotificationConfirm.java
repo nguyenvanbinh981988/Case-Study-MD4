@@ -5,16 +5,20 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
 @Entity
-public class ListUserSelect {
+@Data
+public class NotificationConfirm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @ManyToOne
-    private AppUser appUser;
-    @ManyToOne
-    private  Drink drink;
-    private LocalDateTime timeSelect;
-    private int quantity;
+    AppUser appUser;
+
+    private String contentNotification;
+
+
+    private LocalDateTime timeNotification;
+
+
 }

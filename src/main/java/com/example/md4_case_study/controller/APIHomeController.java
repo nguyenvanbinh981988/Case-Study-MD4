@@ -5,6 +5,8 @@ import com.example.md4_case_study.service.IAppUserService;
 import com.example.md4_case_study.service.JwtService;
 import com.example.md4_case_study.service.iplm.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -33,20 +35,18 @@ public class APIHomeController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/login")
-    public UserLoging login(@RequestBody AppUser appUser){
+    public ResponseEntity<UserLoging> login(@RequestBody AppUser appUser){
         try {
             // Tạo ra 1 đối tượng Authentication.
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(appUser.getNameUser(), appUser.getPasswordUser()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = jwtService.createToken(authentication);
-            return new UserLoging(userService.findAppUserByName(appUser.getNameUser()).getIdUser(),token);
+            return new ResponseEntity<>( new UserLoging(userService.findAppUserByName(appUser.getNameUser()).getIdUser(),token),HttpStatus.OK);
         } catch (Exception e) {
-            return null;
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
-
-
     @PostMapping("/register")
     public String register(@RequestBody AppUser appUser) {
 //        String pass = passwordEncoder.encode(appUser.getPasswordUser());

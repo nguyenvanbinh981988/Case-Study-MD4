@@ -2,12 +2,14 @@ package com.example.md4_case_study.service.iplm;
 
 import com.example.md4_case_study.model.ListUserSelect;
 import com.example.md4_case_study.repository.ListUserSelectRepo;
-import com.example.md4_case_study.service.IListUserSelect;
+import com.example.md4_case_study.service.IListUserSelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class ListUserSelectService implements IListUserSelect {
+public class ListUserSelectService implements IListUserSelectService {
     @Autowired
     ListUserSelectRepo listUserSelectRepo;
 
@@ -16,9 +18,9 @@ public class ListUserSelectService implements IListUserSelect {
         listUserSelectRepo.save(listUserSelect);
     }
 
-//    @Override
-//    public int quantitySelect(int id) {
-//        return  listUserSelectRepo.quantitySelect(id);
-//    }
+    @Override
+    public List<ListUserSelect> listUserSelectByIdAndBySelect(int idUser, String time) {
+       return  listUserSelectRepo.listUserSelectByIdAndBySelect(idUser,time);
+    }
 
 }

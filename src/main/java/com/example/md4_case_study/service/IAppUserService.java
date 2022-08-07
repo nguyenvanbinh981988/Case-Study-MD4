@@ -15,4 +15,6 @@ public interface IAppUserService extends UserDetailsService {
     AppUser findAppUserByName(String name);
 
     void saveRole(long id);
+
+     Optional<AppUser> findAppUserById(long id);
 }

@@ -15,4 +15,8 @@ public interface AppUserRepo extends CrudRepository<AppUser, Long> {
     @Transactional
     @Query(nativeQuery = true,value = "insert into app_user_roles values(:id,1);")
     void saveRole(@Param("id") long id);
+
+
+//    @Query(nativeQuery = true,value = "select * from app_user where id_user =:idUser;")
+//    AppUser findAppUsersById(@Param("idUser") long id);
 }
