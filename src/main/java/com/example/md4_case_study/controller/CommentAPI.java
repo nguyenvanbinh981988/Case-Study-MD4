@@ -2,9 +2,9 @@ package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.Comment;
 import com.example.md4_case_study.model.CommentUser;
-import com.example.md4_case_study.service.CommentService;
+import com.example.md4_case_study.service.iplm.CommentService;
 
-import com.example.md4_case_study.service.RoomService;
+import com.example.md4_case_study.service.iplm.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

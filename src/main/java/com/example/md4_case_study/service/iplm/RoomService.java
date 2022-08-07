@@ -1,10 +1,11 @@
-package com.example.md4_case_study.service;
+package com.example.md4_case_study.service.iplm;
 
 
 
 import com.example.md4_case_study.model.ReplyComment;
 import com.example.md4_case_study.model.Room;
 import com.example.md4_case_study.repository.RoomRepo;
+import com.example.md4_case_study.service.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

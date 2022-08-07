@@ -1,4 +1,4 @@
-package com.example.md4_case_study.service;
+package com.example.md4_case_study.service.iplm;
 
 import com.example.md4_case_study.model.Comment;
 import com.example.md4_case_study.model.Room;

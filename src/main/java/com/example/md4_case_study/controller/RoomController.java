@@ -1,7 +1,7 @@
 package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.Room;
-import com.example.md4_case_study.service.RoomService;
+import com.example.md4_case_study.service.iplm.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +24,7 @@ import java.util.Optional;
 public class RoomController {
     @Autowired
     RoomService roomService;
-    @GetMapping("/room")
+    @GetMapping
     public ResponseEntity<Iterable<Room>> findAllRoom() {
         List<Room> rooms = (List<Room>) roomService.findAll();
         if (rooms.isEmpty()) {

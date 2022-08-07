@@ -1,8 +1,8 @@
 package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.ReplyComment;
-import com.example.md4_case_study.service.CommentService;
-import com.example.md4_case_study.service.IReplyCommentService;
+import com.example.md4_case_study.service.iplm.CommentService;
+import com.example.md4_case_study.service.iplm.IReplyCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
