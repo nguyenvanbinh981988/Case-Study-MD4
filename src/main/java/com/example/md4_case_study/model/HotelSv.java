@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -13,5 +14,5 @@ public class HotelSv {
     private long IdHotelSv;
     private String nameHotelSv;
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Picture> pictures;
+    private Set<Picture> pictures;
 }

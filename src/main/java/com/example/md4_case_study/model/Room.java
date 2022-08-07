@@ -15,6 +15,7 @@ public class Room {
     private int roomType;
     private String roomKind;
     private String view;
+    private int priceRoom;
     private boolean statusRoom;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Picture> pictures;

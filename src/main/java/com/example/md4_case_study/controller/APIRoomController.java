@@ -6,13 +6,7 @@ import com.example.md4_case_study.service.iplm.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.io.IOException;
-
 @RestController
 @RequestMapping("/room")
 @CrossOrigin("*")

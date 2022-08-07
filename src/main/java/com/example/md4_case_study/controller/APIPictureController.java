@@ -46,11 +46,11 @@ public class APIPictureController {
     public String img(@RequestParam MultipartFile file){
         String name = file.getOriginalFilename();
         try {
-            FileCopyUtils.copy(file.getBytes(),new File("D:/00. Codegym/04. Module 4/101. Case Study/MD4_CASE_STUDY_FE/royal-master/image/"+name));
+            FileCopyUtils.copy(file.getBytes(),new File("D:/00. Codegym/04. Module 4/101. Case Study/MD4_CASE_STUDY_FE/img/"+name));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return "/image/" + name;
+        return "/img/" + name;
     }
 
 }
