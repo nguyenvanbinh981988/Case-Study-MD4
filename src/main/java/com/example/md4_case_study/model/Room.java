@@ -3,7 +3,6 @@ package com.example.md4_case_study.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,8 +15,8 @@ public class Room {
     private int roomType;
     private String roomKind;
     private String view;
+    private int priceRoom;
     private boolean statusRoom;
-    private double priceRoom;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Picture> pictures;
 }

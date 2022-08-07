@@ -15,3 +15,4 @@ public class Picture {
     private long idPicture;
     private String img;
 }
+
