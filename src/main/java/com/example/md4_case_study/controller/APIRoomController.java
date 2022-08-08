@@ -37,5 +37,9 @@ public class APIRoomController {
         roomService.delete(idRoom);
         return "OK";
     }
+    @GetMapping("/seachRoom")
+    public Room findByNameRoom(@RequestParam(defaultValue = "") String nameRoom){
+        return roomService.findByNameRoom(nameRoom);
+    }
 
 }
