@@ -42,5 +42,10 @@ public class RoomService implements IRoomService {
         return roomRepo.findByIdRoom(idRoom);
     }
 
+//    @Override
+//    public List<Room> findAllRoomB(int roomType,String roomKind,int minPriceRoom,int maxPriceRoom) {
+//        return roomRepo.findAllRoom(roomType,roomKind,minPriceRoom,maxPriceRoom);
+//    }
+
 
 }
