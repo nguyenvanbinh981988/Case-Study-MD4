@@ -22,6 +22,8 @@ public class AppUserService implements IAppUserService {
         return (List<AppUser>) appUserRepo.findAll();
     }
 
+
+
     @Override
     public void save(AppUser appUser) {
         appUserRepo.save(appUser);

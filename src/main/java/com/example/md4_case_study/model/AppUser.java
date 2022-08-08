@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
+
 
 public class AppUser {
     @Id
@@ -26,4 +26,6 @@ public class AppUser {
     private String passwordUser;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+    public AppUser() {
+    }
 }
