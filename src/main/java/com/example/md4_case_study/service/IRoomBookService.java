@@ -15,8 +15,6 @@ public interface IRoomBookService {
 
     void delete(long idRoomBook);
 
-    List<RoomBook> findByRoom(Room room);
-
     Optional<RoomBook> findByAppUser(AppUser appUser);
 
     Page<RoomBook> findByNameGuestContain(Pageable pageable, String nameGuest);
@@ -24,4 +22,7 @@ public interface IRoomBookService {
 
     List<RoomBook> findByNameGuest(String nameGuest);
 
+    List<RoomBook> findByIdRoom(Long id);
+
+    List<RoomBook> findByRoom(Long id);
 }

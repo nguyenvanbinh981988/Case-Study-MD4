@@ -40,9 +40,14 @@ public class APIRoomController {
         roomService.delete(idRoom);
         return "OK";
     }
-    @GetMapping("/seachRoom")
+    @GetMapping("/Room")
     public Room findByNameRoom(@RequestParam(defaultValue = "") String nameRoom){
         return roomService.findByNameRoom(nameRoom);
+    }
+
+    @GetMapping("/{id}")
+    public Room findByIdRoom(@PathVariable Long id){
+        return roomService.findById(id).get();
     }
 
 //    @GetMapping("/findRoom")

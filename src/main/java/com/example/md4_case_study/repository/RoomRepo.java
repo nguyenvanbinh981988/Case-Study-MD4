@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoomRepo extends PagingAndSortingRepository<Room,Long> {
     Room findByNameRoom(String nameRoom);
-    Room findByIdRoom(Long idRoom);
 }
 
 

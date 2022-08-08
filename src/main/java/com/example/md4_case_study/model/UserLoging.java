@@ -12,6 +12,7 @@ public class UserLoging {
         this.id = id;
         this.token = token;
         this.userName = userName;
+
     }
 
     public long getId() {

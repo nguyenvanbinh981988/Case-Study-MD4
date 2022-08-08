@@ -34,6 +34,7 @@ public class RoomBookService implements IRoomBookService {
         iRoomBookRepo.deleteById(idRoomBook);
     }
 
+
     @Override
     public Optional<RoomBook> findByAppUser(AppUser appUser){
         return iRoomBookRepo.findByAppUser(appUser);
@@ -49,8 +50,13 @@ public class RoomBookService implements IRoomBookService {
         return iRoomBookRepo.findByNameGuest(nameGuest);
     }
 
+    @Override
+    public List<RoomBook> findByIdRoom(Long id) {
+        return null;
+    }
+
 
     @Override
-    List<RoomBook> findByIdRoom(Long id){iRoomBookRepo.deleteById(Long id);};
+    public List<RoomBook> findByRoom(Long id){ return iRoomBookRepo.findByRoomId(id);};
 
 }

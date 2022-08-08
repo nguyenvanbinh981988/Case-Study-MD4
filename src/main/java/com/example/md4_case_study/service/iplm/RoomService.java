@@ -38,8 +38,8 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public Room findById(Long idRoom) {
-        return roomRepo.findByIdRoom(idRoom);
+    public Optional<Room> findById(Long idRoom) {
+        return roomRepo.findById(idRoom);
     }
 
 //    @Override

@@ -16,6 +16,6 @@ public interface IRoomService {
     void delete(Long idRoom);
     Room findByNameRoom(String nameRoom);
 
-    public Room findById(Long idRoom);
+    public Optional<Room> findById(Long idRoom);
 //    public List<Room> findAllRoomB(int roomType,String roomKind,int minPriceRoom,int maxPriceRoom);
 }
