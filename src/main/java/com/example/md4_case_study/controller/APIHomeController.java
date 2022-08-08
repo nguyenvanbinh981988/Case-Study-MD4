@@ -34,6 +34,12 @@ public class APIHomeController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @GetMapping("/appuser")
+    public List<AppUser>getAll(){
+        return userService.getAll();
+    }
+
+
     @PostMapping("/login")
     public ResponseEntity<UserLoging> login(@RequestBody AppUser appUser){
         try {
