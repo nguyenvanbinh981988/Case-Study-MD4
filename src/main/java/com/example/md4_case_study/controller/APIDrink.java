@@ -2,11 +2,9 @@ package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.Drink;
 import com.example.md4_case_study.model.ListUserSelect;
+import com.example.md4_case_study.model.NotificationConfirm;
 import com.example.md4_case_study.model.OderConfirm;
-import com.example.md4_case_study.service.IAppUserService;
-import com.example.md4_case_study.service.IDrinkServiceService;
-import com.example.md4_case_study.service.IListUserSelectService;
-import com.example.md4_case_study.service.IOderConFirm;
+import com.example.md4_case_study.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +22,9 @@ public class APIDrink {
 
     @Autowired
     IListUserSelectService listUserSelectService;
+
+    @Autowired
+    INotificationConfirmService notificationConfirmService;
 
     @Autowired
     IOderConFirm oderConFirm;
@@ -48,5 +49,9 @@ public class APIDrink {
            }
         System.out.println("totalMoney :"+totalMoneyOder);
            oderConFirm.saveOderConfirm(new OderConfirm(appUserService.findAppUserById(idUser).get(),listUserSelects.size(),totalMoneyOder,timeOder));
+    }
+    @GetMapping("/notification/{idUser}")
+    public ResponseEntity<List<NotificationConfirm>> listNotificationConfirmByIdUser(@PathVariable int idUser){
+        return  new ResponseEntity<>(notificationConfirmService.notificationConfirmByIdUser(idUser),HttpStatus.OK);
     }
 }

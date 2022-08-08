@@ -7,4 +7,6 @@ import java.util.List;
 public interface IOderConFirm {
     List<OderConfirm> listOderConfirm ();
     void saveOderConfirm(OderConfirm oderConfirm);
+
+    void updateStatusConfirm(int idUser,String time);
 }

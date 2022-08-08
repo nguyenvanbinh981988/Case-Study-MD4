@@ -17,4 +17,5 @@ public class ListUserSelect {
     private  Drink drink;
     private LocalDateTime timeSelect;
     private int quantity;
+    private boolean statusConfirm=false;
 }

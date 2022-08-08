@@ -12,6 +12,6 @@ public interface OderConfirmRepo extends CrudRepository<OderConfirm,Integer> {
 
     @Modifying
     @Transactional
-    @Query(nativeQuery = true,value = "update login_jwt.oder_confirm set status_confirm = 1 app_user_id_user=:idUser and time_oder like concat('%',:time_oder,'%'); ")
+    @Query(nativeQuery = true,value = "update login_jwt.oder_confirm set status_confirm = 1 where app_user_id_user=:idUser and time_oder like concat('%',:time_oder,'%'); ")
     void updateStatusConfirm(@Param("idUser") int idUser, @Param("time_oder")String time);
 }

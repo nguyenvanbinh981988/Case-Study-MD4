@@ -6,6 +6,8 @@ import com.example.md4_case_study.service.INotificationConfirmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class NotificationConfirmService implements INotificationConfirmService {
     @Autowired
@@ -14,4 +16,10 @@ public class NotificationConfirmService implements INotificationConfirmService {
     public void saveNotificationConfirm(NotificationConfirm notificationConfirm) {
         notificationConfirmRepo.save(notificationConfirm);
     }
+
+    @Override
+    public List<NotificationConfirm> notificationConfirmByIdUser(int idUser) {
+        return (List<NotificationConfirm>) notificationConfirmRepo.notificationConfirmsByIdUser(idUser);
+    }
+
 }

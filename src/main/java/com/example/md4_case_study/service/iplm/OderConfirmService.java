@@ -23,4 +23,9 @@ public class OderConfirmService implements IOderConFirm {
     public void saveOderConfirm(OderConfirm oderConfirm) {
         oderConfirmRepo.save(oderConfirm);
     }
+
+    @Override
+    public void updateStatusConfirm(int idUser, String time) {
+        oderConfirmRepo.updateStatusConfirm(idUser,time);
+    }
 }
