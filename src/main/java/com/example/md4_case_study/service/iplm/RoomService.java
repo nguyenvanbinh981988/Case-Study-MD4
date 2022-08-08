@@ -1,15 +1,11 @@
 package com.example.md4_case_study.service.iplm;
 
 import com.example.md4_case_study.model.Room;
-import com.example.md4_case_study.model.RoomBook;
 import com.example.md4_case_study.repository.RoomRepo;
 import com.example.md4_case_study.service.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,13 +14,13 @@ public class RoomService implements IRoomService {
     RoomRepo roomRepo;
 
     @Override
-    public Page<Room> getAll(Pageable pageable) {
-        return roomRepo.findAll(pageable);
+    public Iterable<Room> findAll() {
+        return roomRepo.findAll();
     }
 
     @Override
-    public Room findByNameRoom(String nameRoom) {
-        return roomRepo.findByNameRoom(nameRoom);
+    public Optional<Room> findById(Long id) {
+        return roomRepo.findById(id);
     }
 
     @Override
@@ -33,13 +29,9 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public void delete(Long idRoom) {
-        roomRepo.deleteById(idRoom);
-    }
+    public void remove(Long id) {
+        roomRepo.deleteById(id);
 
-    @Override
-    public Room findById(Long idRoom) {
-        return roomRepo.findByIdRoom(idRoom);
     }
 
 //    @Override

@@ -50,7 +50,8 @@ public class APIHomeController {
             String token = jwtService.createToken(authentication);
             return new ResponseEntity<>( new UserLoging(userService.findAppUserByName(appUser.getNameUser()).getIdUser(),token,appUser.getNameUser()),HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
     @PostMapping("/register")

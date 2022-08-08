@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/picture")
+@RequestMapping("user/picture")
 @CrossOrigin("*")
 public class APIPictureController {
     @Autowired

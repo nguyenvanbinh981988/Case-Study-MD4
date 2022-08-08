@@ -6,6 +6,7 @@ import com.example.md4_case_study.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,8 @@ public class APIAdmin {
     IRoleService roleService;
 @Autowired
     IAppUserService appUserService;
-@GetMapping
+
+    @GetMapping
     public List<AppUser> getAll(){
     return appUserService.getAll();
 }

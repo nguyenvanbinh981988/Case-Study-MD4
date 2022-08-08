@@ -10,12 +10,20 @@ import java.util.Optional;
 
 
 public interface IRoomService {
-    Page<Room> getAll(Pageable pageable);
+    Iterable<Room> findAll();
+
+    Optional<Room> findById(Long id);
+
     Room save(Room room);
 
-    void delete(Long idRoom);
-    Room findByNameRoom(String nameRoom);
-
-    public Room findById(Long idRoom);
-//    public List<Room> findAllRoomB(int roomType,String roomKind,int minPriceRoom,int maxPriceRoom);
+    void remove(Long id);
+//    Page<Room> getAll(Pageable pageable);
+//    Room save(Room room);
+//
+//    void delete(Long idRoom);
+//    Room findByNameRoom(String nameRoom);
+//
+//    public Room findById(Long idRoom);
+////    public List<Room> findAllRoomB(int roomType,String roomKind,int minPriceRoom,int maxPriceRoom);
+//}
 }

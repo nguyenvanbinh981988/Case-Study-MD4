@@ -16,7 +16,6 @@ import javax.persistence.Id;
 public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long idRole;
     private String nameRole;
 

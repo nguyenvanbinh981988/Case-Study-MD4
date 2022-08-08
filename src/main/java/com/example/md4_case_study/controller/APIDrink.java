@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/Drink")
+@RequestMapping("/user")
 public class APIDrink {
     @Autowired
     IDrinkServiceService drinkService;
@@ -41,14 +41,14 @@ public class APIDrink {
         LocalDateTime timeOder= java.time.LocalDateTime.now();
         double totalMoneyOder =  0;
            for (ListUserSelect userSelect : listUserSelects){
-               userSelect.setTimeSelect(timeOder);
+               userSelect.setTimeSelect(String.valueOf(timeOder));
                listUserSelectService.save(userSelect);
                int a = drinkService.quantityDrink(userSelect.getDrink().getIdDrink()) -userSelect.getQuantity();
                drinkService.updateQuantity(userSelect.getDrink().getIdDrink(),a);
                totalMoneyOder += drinkService.findDrinkById(userSelect.getDrink().getIdDrink()).get().getPriceDrink()* (userSelect.getQuantity());
            }
         System.out.println("totalMoney :"+totalMoneyOder);
-           oderConFirm.saveOderConfirm(new OderConfirm(appUserService.findAppUserById(idUser).get(),listUserSelects.size(),totalMoneyOder,timeOder));
+           oderConFirm.saveOderConfirm(new OderConfirm(appUserService.findAppUserById(idUser).get(),listUserSelects.size(),totalMoneyOder,String.valueOf(timeOder)));
     }
     @GetMapping("/notification/{idUser}")
     public ResponseEntity<List<NotificationConfirm>> listNotificationConfirmByIdUser(@PathVariable int idUser){

@@ -18,11 +18,11 @@ public class OderConfirm {
 
     private double totalMoneyOder;
 
-    private LocalDateTime timeOder;
+    private String timeOder;
 
     private boolean statusConfirm = false;
 
-    public OderConfirm(AppUser appUser, int quantityOder, double totalMoneyOder, LocalDateTime timeOder) {
+    public OderConfirm(AppUser appUser, int quantityOder, double totalMoneyOder,String timeOder) {
         this.appUser = appUser;
         this.quantityOder = quantityOder;
         this.totalMoneyOder = totalMoneyOder;

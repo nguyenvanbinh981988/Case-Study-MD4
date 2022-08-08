@@ -36,7 +36,7 @@ public class APIConfirmOder {
     }
     @GetMapping("/detailListOderConfirm/{idUser}/{time}")
     public ResponseEntity<List<ListUserSelect>> listUserSelectByIdAndBySelect(@PathVariable int idUser, @PathVariable String time){
-        return new ResponseEntity<>(listUserSelect.listUserSelectByIdAndBySelect(idUser, time),HttpStatus.OK);
+        return new ResponseEntity<>(listUserSelect.listUserSelectByIdAndBySelect(idUser,time),HttpStatus.OK);
     }
     @PostMapping("/confirmOder/{time}")
     public void saveNotificationConfirm(@RequestBody NotificationConfirm notificationConfirm,@PathVariable String time){
@@ -44,8 +44,8 @@ public class APIConfirmOder {
 //        quantityNotificationService.updateStatusConfirm((int) notificationConfirm.getAppUser().getIdUser(),quantityNotificationUser);
         oderConFirm.updateStatusConfirm((int) notificationConfirm.getAppUser().getIdUser(),time);
         listUserSelect.updateStatusConfirm((int) notificationConfirm.getAppUser().getIdUser(),time);
-//        notificationConfirm.setTimeSelectOfUser(LocalDateTime.parse(time));
-        notificationConfirm.setTimeNotification(LocalDateTime.now());
+        notificationConfirm.setTimeSelectOfUser(time);
+        notificationConfirm.setTimeNotification(String.valueOf(LocalDateTime.now()));
         notificationConfirmService.saveNotificationConfirm(notificationConfirm);
     }
 }

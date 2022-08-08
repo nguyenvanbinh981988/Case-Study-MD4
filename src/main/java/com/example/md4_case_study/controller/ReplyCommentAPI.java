@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/replyComment")
+@RequestMapping("user/replyComment")
 public class ReplyCommentAPI {
     @Autowired
     IReplyCommentService iReplyCommentService;

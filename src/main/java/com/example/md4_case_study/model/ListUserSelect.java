@@ -15,7 +15,7 @@ public class ListUserSelect {
     private AppUser appUser;
     @ManyToOne
     private  Drink drink;
-    private LocalDateTime timeSelect;
+    private String timeSelect;
     private int quantity;
     private boolean statusConfirm=false;
 }

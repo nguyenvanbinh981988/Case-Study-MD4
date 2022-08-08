@@ -61,8 +61,4 @@ public class AppUserService implements IAppUserService {
     public void saveRole(long id) {
         appUserRepo.saveRole(id);
     }
-
-
-
-
 }

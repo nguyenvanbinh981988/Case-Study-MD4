@@ -18,8 +18,8 @@ public class NotificationConfirm {
     private String contentNotification;
 
 
-    private LocalDateTime timeSelectOfUser;
+    private String timeSelectOfUser;
 
-    private LocalDateTime timeNotification;
+    private String timeNotification;
 
 }

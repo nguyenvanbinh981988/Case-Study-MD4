@@ -2,6 +2,7 @@ package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.Comment;
 import com.example.md4_case_study.model.CommentUser;
+import com.example.md4_case_study.service.iplm.AppUserService;
 import com.example.md4_case_study.service.iplm.CommentService;
 
 import com.example.md4_case_study.service.iplm.RoomService;
@@ -13,13 +14,16 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/comment")
+@RequestMapping("user/comment")
 public class CommentAPI {
     @Autowired
     CommentService commentService;
 
     @Autowired
     RoomService roomService;
+
+    @Autowired
+    AppUserService appUserService;
     @GetMapping("/{id}")
     public List<Comment>getAll(@PathVariable long id){
         return commentService.findByIdRoom(id);
@@ -28,6 +32,7 @@ public class CommentAPI {
     @PostMapping
     public String create(@RequestBody Comment comment){
         LocalDateTime localDateTime = LocalDateTime.now();
+        comment.setAppUser(appUserService.findAppUserById(comment.getAppUser().getIdUser()).get());
         comment.setDateComment(localDateTime);
         commentService.save(comment);
         return"okiiiii";
