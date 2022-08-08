@@ -49,4 +49,8 @@ public class RoomBookService implements IRoomBookService {
         return iRoomBookRepo.findByNameGuest(nameGuest);
     }
 
+
+    @Override
+    List<RoomBook> findByIdRoom(Long id){iRoomBookRepo.deleteById(Long id);};
+
 }
