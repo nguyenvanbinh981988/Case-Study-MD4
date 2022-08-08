@@ -34,8 +34,7 @@ public class APIRoomController {
         roomService.save(room);
         return room;
     }
-
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}")
     public String delete(@PathVariable Long idRoom){
         roomService.delete(idRoom);
         return "OK";
