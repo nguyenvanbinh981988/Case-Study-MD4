@@ -40,6 +40,10 @@ public class APIRoomController {
         roomService.delete(idRoom);
         return "OK";
     }
+    @GetMapping("/seachRoom")
+    public Room findByNameRoom(@RequestParam(defaultValue = "") String nameRoom){
+        return roomService.findByNameRoom(nameRoom);
+    }
 
 //    @GetMapping("/findRoom")
 //    public List<Room> findRoomToB(@PathVariable int roomType,@PathVariable String roomKind,@PathVariable int minPriceRoom,@PathVariable int maxPriceRoom){
