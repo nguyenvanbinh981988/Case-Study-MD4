@@ -11,7 +11,7 @@ import java.util.Set;
 public class HotelSv {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long IdHotelSv;
+    private long idHotelSv;
     private String nameHotelSv;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Picture> pictures;

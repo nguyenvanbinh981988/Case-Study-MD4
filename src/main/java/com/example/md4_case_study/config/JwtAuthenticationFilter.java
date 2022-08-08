@@ -1,6 +1,7 @@
 package com.example.md4_case_study.config;
+import com.example.md4_case_study.service.JwtService;
 import com.example.md4_case_study.service.iplm.AppUserService;
-import com.example.md4_case_study.service.iplm.JwtService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

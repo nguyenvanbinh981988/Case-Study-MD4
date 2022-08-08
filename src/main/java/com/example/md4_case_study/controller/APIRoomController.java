@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/room")
 @CrossOrigin("*")
@@ -41,5 +44,10 @@ public class APIRoomController {
     public Room findByNameRoom(@RequestParam(defaultValue = "") String nameRoom){
         return roomService.findByNameRoom(nameRoom);
     }
+
+//    @GetMapping("/findRoom")
+//    public List<Room> findRoomToB(@PathVariable int roomType,@PathVariable String roomKind,@PathVariable int minPriceRoom,@PathVariable int maxPriceRoom){
+//        return roomService.findAllRoomB(roomType,roomKind,minPriceRoom,maxPriceRoom);
+//    }
 
 }
