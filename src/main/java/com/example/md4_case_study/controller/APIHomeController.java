@@ -19,6 +19,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 public class APIHomeController {
@@ -35,6 +37,12 @@ public class APIHomeController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @GetMapping("/appuser")
+    public List<AppUser>getAll(){
+        return userService.getAll();
+    }
+
 
     @PostMapping("/login")
 

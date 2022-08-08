@@ -12,6 +12,7 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long idUser;
+
     private String nameUser;
     private String cccdUser;
     private String phoneUser;

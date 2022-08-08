@@ -8,6 +8,7 @@ import com.example.md4_case_study.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -21,12 +22,15 @@ public class CommentAPI {
     RoomService roomService;
     @GetMapping("/{id}")
     public List<Comment>getAll(@PathVariable long id){
-        return commentService.getAll(id);
+        return commentService.findByIdRoom(id);
     }
 
     @PostMapping
-    public void create(@RequestBody CommentUser commentUser){
-        commentService.saveComment(commentUser.getIdUser(),commentUser.getContent(),commentUser.getIdroom());
+    public String create(@RequestBody Comment comment){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        comment.setDateComment(localDateTime);
+        commentService.save(comment);
+        return"okiiiii";
     }
 
     @PutMapping

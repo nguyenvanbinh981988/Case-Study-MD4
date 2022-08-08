@@ -15,10 +15,12 @@ public class CommentService {
     @Autowired
     ICommentRepo iCommentRepo;
 
-    public List<Comment> getAll(@PathVariable ("id") long id){
-        List<Comment> list = iCommentRepo.findAllByIdRoom(id);
+    public List<Comment> findByIdRoom(long id){
+        List<Comment> list = iCommentRepo.findAllByRoomIdRoom(id);
         return list;
     }
+
+
     public Comment save(@RequestBody Comment comment){
         return iCommentRepo.save(comment);
     }

@@ -1,6 +1,7 @@
 package com.example.md4_case_study.controller;
 
 import com.example.md4_case_study.model.Room;
+import com.example.md4_case_study.service.CommentService;
 import com.example.md4_case_study.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,8 @@ import java.util.Optional;
 public class RoomController {
     @Autowired
     RoomService roomService;
+    @Autowired
+    CommentService commentService;
     @GetMapping("/room")
     public ResponseEntity<Iterable<Room>> findAllRoom() {
         List<Room> rooms = (List<Room>) roomService.findAll();
@@ -37,8 +40,8 @@ public class RoomController {
     @GetMapping("/{id}")
     public ResponseEntity<Room> findRoomById(@PathVariable long id) {
         Optional<Room> roomOptional = roomService.findById(id);
-        if (!roomOptional.isPresent()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            if (!roomOptional.isPresent()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(roomOptional.get(),HttpStatus.OK);
     }

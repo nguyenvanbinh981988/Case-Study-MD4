@@ -10,10 +10,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface ICommentRepo extends CrudRepository<Comment,Long> {
-    @Query(nativeQuery = true,value = "SELECT * FROM md4_case_study.comment where room_id_room =:id")
-    List<Comment> findAllByIdRoom(@Param("id")long id);
 
-    List<Comment> findAllByRoom(Room room);
+
+    List<Comment> findAllByRoomIdRoom(long id);
 //    public int countCommentByIdR(long idCommnet);
     @Query(nativeQuery = true,value = "select count(id_comment) from comment where room_id_room = :id ")
     int countCommentByRoom(@Param("id") long id);
