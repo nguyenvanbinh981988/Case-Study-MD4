@@ -28,4 +28,9 @@ public class ListUserSelectService implements IListUserSelectService {
         listUserSelectRepo.updateStatusConfirm(idUser,time);
     }
 
+    @Override
+    public List<ListUserSelect> listUserSelectById(int idUser) {
+      return   listUserSelectRepo.listUserSelectById(idUser);
+    }
+
 }

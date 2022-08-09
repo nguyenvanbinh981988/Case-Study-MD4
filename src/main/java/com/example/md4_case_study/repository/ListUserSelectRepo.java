@@ -16,6 +16,9 @@ public interface ListUserSelectRepo extends CrudRepository<ListUserSelect,Intege
 
     @Query(nativeQuery = true,value = "select * from login_jwt.list_user_select where app_user_id_user=:idUser and time_select like concat('%',:timeSelect,'%');")
     List<ListUserSelect>  listUserSelectByIdAndBySelect(@Param("idUser") int idUser, @Param("timeSelect")String time);
+
+    @Query(nativeQuery = true,value = "select * from login_jwt.list_user_select where app_user_id_user=:idUser")
+    List<ListUserSelect>  listUserSelectById(@Param("idUser") int idUser);
     @Modifying
     @Transactional
     @Query(nativeQuery = true,value = "update login_jwt.list_user_select set status_confirm = 1 where app_user_id_user=:idUser and time_select like concat('%',:time_oder,'%'); ")

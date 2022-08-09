@@ -17,4 +17,17 @@ public interface QuantityNotificationRepo extends CrudRepository<QuantityNotific
     @Transactional
     @Query(nativeQuery = true,value = "update login_jwt.quantity_notification_user set quantity_notification =:quantity where app_user_id_user=:idUser ; ")
     void updateStatusConfirm(@Param("idUser") int idUser, @Param("quantity")int quantity);
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true,value = "update login_jwt.quantity_notification_user set quantity_notification = 0 where app_user_id_user=:idUser ; ")
+    void updateStatusConfirmTo0(@Param("idUser") int idUser);
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true,value = "update login_jwt.quantity_notification_user set quantity_notification = 0 where app_user_id_user=1; ")
+    void updateStatusConfirmTo0Admin();
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true,value = "update login_jwt.quantity_notification_user set quantity_notification =:quantity where app_user_id_user=1; ")
+    void updateStatusConfirmAdmin( @Param("quantity")int quantity);
 }

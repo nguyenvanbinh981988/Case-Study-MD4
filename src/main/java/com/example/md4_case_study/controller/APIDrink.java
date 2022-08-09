@@ -1,9 +1,6 @@
 package com.example.md4_case_study.controller;
 
-import com.example.md4_case_study.model.Drink;
-import com.example.md4_case_study.model.ListUserSelect;
-import com.example.md4_case_study.model.NotificationConfirm;
-import com.example.md4_case_study.model.OderConfirm;
+import com.example.md4_case_study.model.*;
 import com.example.md4_case_study.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +28,12 @@ public class APIDrink {
 
     @Autowired
     IAppUserService appUserService;
+
+    @Autowired
+    IQuantityNotificationService quantityNotificationService;
+
+    @Autowired
+    INotificationAdminService notificationAdminService;
     @GetMapping("/drinks")
     public ResponseEntity<List<Drink>> listDrinks(){
         return new ResponseEntity<>(drinkService.listDrink(), HttpStatus.OK);
@@ -39,6 +42,9 @@ public class APIDrink {
     @PostMapping("/pay/{idUser}")
     public void save(@RequestBody  List<ListUserSelect> listUserSelects,@PathVariable long idUser){
         LocalDateTime timeOder= java.time.LocalDateTime.now();
+        notificationAdminService.saveNotificationAdmin(new NotificationAdmin(appUserService.findAppUserById(idUser).get(),String.valueOf(timeOder)));
+        int b = quantityNotificationService.countQuantityNotificationUser(1)+1;
+        quantityNotificationService.updateStatusConfirmAdmin(b);
         double totalMoneyOder =  0;
            for (ListUserSelect userSelect : listUserSelects){
                userSelect.setTimeSelect(String.valueOf(timeOder));
@@ -54,4 +60,13 @@ public class APIDrink {
     public ResponseEntity<List<NotificationConfirm>> listNotificationConfirmByIdUser(@PathVariable int idUser){
         return  new ResponseEntity<>(notificationConfirmService.notificationConfirmByIdUser(idUser),HttpStatus.OK);
     }
+    @GetMapping("/quantityNotication/{idUser}")
+    public int quantityNotication(@PathVariable int idUser){
+     return quantityNotificationService.countQuantityNotificationUser(idUser);
+    }
+    @GetMapping("/updateQuantiyNorificationTo0/{idUser}")
+    public void updateStatusConfirmTo0(@PathVariable int idUser){
+         quantityNotificationService.updateStatusConfirmTo0(idUser);
+    }
+
 }

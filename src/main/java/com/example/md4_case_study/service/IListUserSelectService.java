@@ -11,5 +11,5 @@ public interface IListUserSelectService {
    List<ListUserSelect> listUserSelectByIdAndBySelect(int idUser, String time);
 
    void updateStatusConfirm(int idUser,String time);
-
+  List<ListUserSelect> listUserSelectById(int idUser);
 }
